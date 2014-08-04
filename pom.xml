@@ -4,7 +4,7 @@
 	<groupId>com.levigo.jbig2</groupId>
 	<artifactId>levigo-jbig2-imageio</artifactId>
 	<name>jbig2-imageio</name>
-	<version>1.6.3-SNAPSHOT</version>
+	<version>1.6.3</version>
 
 	<distributionManagement>
 		<repository>
@@ -17,7 +17,7 @@
         <connection>scm:git:ssh://github.com/levigo/jbig2-imageio.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/levigo/jbig2-imageio.git</developerConnection>
         <url>https://github.com/levigo/jbig2-imageio</url>
-        <tag>HEAD</tag>
+        <tag>levigo-jbig2-imageio-1.6.3-SNAPSHOT</tag>
 	</scm>
 
 	<dependencies>

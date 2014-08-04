@@ -1,10 +1,13 @@
 # Release notes
 
+## Version 1.6.3 (2014-08.04
+- Issue #1: Discard the request of copying the row above the first row.
+
 ## Version 1.6.2-RC1 (2014-01-22)
 - Googlecode Issue 17: Changed computation of result dimension from ceiling to rounding. 
 
 ##Version 1.6.1 (2013-04-18)
-- Googlecode Issue 11: Added support for GRREFERENCE# Release notes
+- Googlecode Issue 11: Added support for `GRREFERENCE` Release notes
 
 ## Version 1.6.2-RC1 (2014-01-22)
 - Googlecode Issue 17: Changed computation of result dimension from ceiling to rounding. 

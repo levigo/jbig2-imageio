@@ -14,7 +14,10 @@
 	</distributionManagement>
 
 	<scm>
-		<developerConnection>scm:svn:https://jbig2-imageio.googlecode.com/svn/jbig2-imageio/trunk</developerConnection>
+        <connection>scm:git:ssh://github.com/levigo/jbig2-imageio.git</connection>
+		<developerConnection>scm:git:ssh://github.com/levigo/jbig2-imageio.git</developerConnection>
+        <url>https://github.com/levigo/jbig2-imageio</url>
+        <tag>HEAD</tag>
 	</scm>
 
 	<dependencies>
@@ -62,6 +65,8 @@
 						<exclude>**/.settings/**</exclude>
 						<exclude>**/target/**</exclude>
 						<exclude>**/pom.xml</exclude>
+						<exclude>**/.idea</exclude>
+						<exclude>**/atlassian-ide-plugin.xml</exclude>
 					</excludes>
 					<includes>
 						<include>**/*.xml</include>

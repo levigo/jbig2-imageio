@@ -14,8 +14,8 @@
 	</distributionManagement>
 
 	<scm>
-        <connection>scm:git:ssh://git@github.com/levigo/jbig2-imageio.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/levigo/jbig2-imageio.git</developerConnection>
+        <connection>scm:git:ssh://github.com/levigo/jbig2-imageio.git</connection>
+		<developerConnection>scm:git:ssh://github.com/levigo/jbig2-imageio.git</developerConnection>
         <url>https://github.com/levigo/jbig2-imageio</url>
         <tag>HEAD</tag>
 	</scm>

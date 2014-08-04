@@ -14,11 +14,11 @@ The key features of the plugin are:
 - Support for shared data segments as used by PDF via custom DecodeParams.
 
 ## License
-This ImageIO plugin is licensed under the [GNU General Public License V3](http://www.gnu.org/licenses/gpl.html). Alternatively see [here](jbig2-imageio/trunk/gpl.txt).
+This ImageIO plugin is licensed under the [GNU General Public License V3](http://www.gnu.org/licenses/gpl.html). Alternatively see [here](gpl.txt).
 For other licensing options please [contact us](mailto:solutions@levigo.de).
 
 ## Release Notes
-Please take a look at the [release notes](jbig2-imageio/trunk/release-notes.txt).
+Please take a look at the [release notes](release-notes.md).
 
 ## Support
 Support is available via issue tracker. Commercial support is available. For inquiries please [contact us](mailto:solutions@levigo.de).

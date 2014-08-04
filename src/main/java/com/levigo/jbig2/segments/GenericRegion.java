@@ -205,7 +205,9 @@ public class GenericRegion implements Region {
 
           /* 6.2.5.7 - 3 c) */
           if (ltp == 1) {
-            copyLineAbove(line);
+            if (line > 0) {
+              copyLineAbove(line);
+            }
           } else {
             /* 3 d) */
             // NOT USED ATM - If corresponding pixel of SKIP bitmap is 0, set

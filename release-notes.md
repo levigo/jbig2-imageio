@@ -1,12 +1,10 @@
 # Release notes
 
 ## Version 1.6.2-RC1 (2014-01-22)
+- Googlecode Issue 17: Changed computation of result dimension from ceiling to rounding. 
 
-- `FIX` Issue 17: Changed computation of result dimension from ceiling to rounding. 
-
-Version 1.6.1 (2013-04-18)
-
-* IMPROVEMENT Issue 11: Added support for GRREFERENCE# Release notes
+##Version 1.6.1 (2013-04-18)
+- Googlecode Issue 11: Added support for GRREFERENCE# Release notes
 
 ## Version 1.6.2-RC1 (2014-01-22)
 - Googlecode Issue 17: Changed computation of result dimension from ceiling to rounding. 

@@ -299,7 +299,7 @@ public class JBIG2ImageReader extends ImageReader {
       }
 
       if (this.globals == null) {
-        log.info("Globals not set.");
+        log.debug("Globals not set.");
       }
 
       this.document = new JBIG2Document((ImageInputStream) this.input, this.globals);

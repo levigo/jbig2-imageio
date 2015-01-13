@@ -48,7 +48,7 @@ public class JBIG2Globals {
   protected SegmentHeader getSegment(int segmentNr) {
     if (globalSegments.size() == 0) {
       if (log.isErrorEnabled()) {
-        log.error("No global segment added so far.");
+        log.error("No global segment added so far. Use JBIG2ImageReader.setGlobals().");
       }
     }
 

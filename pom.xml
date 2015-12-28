@@ -7,9 +7,15 @@
 	<version>1.6.4-SNAPSHOT</version>
 
 	<distributionManagement>
+		<snapshotRepository>
+			<id>sonatype-nexus-snapshots</id>
+			<name>Sonatype Nexus Snapshot Repository</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</snapshotRepository>
 		<repository>
-			<id>jbig2-imageio-releases</id>
-			<url>svn:https://jbig2-imageio.googlecode.com/svn/maven-repository</url>
+			<id>sonatype-nexus-staging</id>
+			<name>Sonatype Nexus Release Staging Repository</name>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
 
@@ -30,14 +36,6 @@
 	</dependencies>
 
 	<build>
-		<extensions>
-			<extension>
-				<groupId>com.google.code.maven-svn-wagon</groupId>
-				<artifactId>maven-svn-wagon</artifactId>
-				<version>1.4</version>
-			</extension>
-		</extensions>
-
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

@@ -4,7 +4,25 @@
 	<groupId>com.levigo.jbig2</groupId>
 	<artifactId>levigo-jbig2-imageio</artifactId>
 	<name>jbig2-imageio</name>
-	<version>1.6.4-SNAPSHOT</version>
+	<version>1.6.5-SNAPSHOT</version>
+	
+	<description>Java Image I/O plugin for reading JBIG2-compressed image data</description>
+	<url>https://github.com/levigo/jbig2-imageio</url>
+	
+	<licenses>
+		<license>
+			<name>GPL v3</name>
+			<url>http://www.gnu.org/licenses/gpl.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	
+	<developers>
+		<developer>
+			<name>Matthäus Mayer</name>
+			<email>m.mayer@levigo.de</email>
+		</developer>
+	</developers>
 
 	<distributionManagement>
 		<snapshotRepository>

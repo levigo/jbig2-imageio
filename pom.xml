@@ -4,7 +4,7 @@
 	<groupId>com.levigo.jbig2</groupId>
 	<artifactId>levigo-jbig2-imageio</artifactId>
 	<name>jbig2-imageio</name>
-	<version>1.6.5</version>
+	<version>1.6.6-SNAPSHOT</version>
 	
 	<description>Java Image I/O plugin for reading JBIG2-compressed image data</description>
 	<url>https://github.com/levigo/jbig2-imageio</url>
@@ -41,7 +41,7 @@
         <connection>scm:git:ssh://github.com/levigo/jbig2-imageio.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/levigo/jbig2-imageio.git</developerConnection>
         <url>https://github.com/levigo/jbig2-imageio</url>
-        <tag>levigo-jbig2-imageio-1.6.5</tag>
+        <tag>HEAD</tag>
 	</scm>
 
 	<dependencies>

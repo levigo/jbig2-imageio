@@ -46,7 +46,7 @@ To use the plugin within a Maven POM-based project, simply include a dependency 
     <dependency>
       <groupId>com.levigo.jbig2</groupId>
       <artifactId>levigo-jbig2-imageio</artifactId>
-      <version>1.6.3</version>
+      <version>1.6.5</version>
     </dependency>
 
 ### How to deal with embedded JBIG2 data

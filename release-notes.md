@@ -1,6 +1,6 @@
 # Release notes
 
-## Version 1.6.4 (2015-12-29)
+## Version 1.6.5 (2015-12-29)
 - Issue #5: Deployment to maven central
 
 ## Version 1.6.3 (2014-08-04)

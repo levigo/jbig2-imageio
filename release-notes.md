@@ -1,6 +1,9 @@
 # Release notes
 
-## Version 1.6.3 (2014-08.04
+## Version 1.6.5 (2015-12-29)
+- Issue #5: Deployment to maven central
+
+## Version 1.6.3 (2014-08-04)
 - Issue #1: Discard the request of copying the row above the first row.
 
 ## Version 1.6.2-RC1 (2014-01-22)

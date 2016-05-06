@@ -18,8 +18,7 @@
 package com.levigo.jbig2.util;
 
 import java.util.Iterator;
-
-import javax.imageio.spi.ServiceRegistry;
+import java.util.ServiceLoader;
 
 public class ServiceLookup<B> {
 
@@ -28,14 +27,14 @@ public class ServiceLookup<B> {
   }
 
   public Iterator<B> getServices(Class<B> cls, ClassLoader clsLoader) {
-    Iterator<B> services = ServiceRegistry.lookupProviders(cls);
+    Iterator<B> services = ServiceLoader.load(cls).iterator();
 
     if (!services.hasNext()) {
-      services = ServiceRegistry.lookupProviders(cls, cls.getClass().getClassLoader());
+      services = ServiceLoader.load(cls, cls.getClass().getClassLoader()).iterator();
     }
 
     if (!services.hasNext() && clsLoader != null) {
-      services = ServiceRegistry.lookupProviders(cls, clsLoader);
+      services = ServiceLoader.load(cls, clsLoader).iterator();
     }
 
     return services;

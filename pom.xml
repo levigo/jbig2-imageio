@@ -38,10 +38,10 @@
 	</distributionManagement>
 
 	<scm>
-        <connection>scm:git:ssh://github.com/levigo/jbig2-imageio.git</connection>
+    <connection>scm:git:ssh://github.com/levigo/jbig2-imageio.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/levigo/jbig2-imageio.git</developerConnection>
-        <url>https://github.com/levigo/jbig2-imageio</url>
-        <tag>HEAD</tag>
+    <url>https://github.com/levigo/jbig2-imageio</url>
+    <tag>HEAD</tag>
 	</scm>
 
 	<dependencies>
@@ -57,9 +57,10 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
 				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
+					<source>1.7</source>
+					<target>1.7</target>
 					<debug>false</debug>
 					<optimize>true</optimize>
 				</configuration>
@@ -101,25 +102,25 @@
 				</executions>
 			</plugin>
 
-            <plugin>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.4.2</version>
-                <configuration>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <!-- Keep changes in the local repo, push will be done afterwards -->
-                    <pushChanges>false</pushChanges>
-                    <localCheckout>true</localCheckout>
-                    <!-- Use a better name for the tag -->
-                    <tagNameFormat>${artifactId}-${project.version}</tagNameFormat>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.scm</groupId>
-                        <artifactId>maven-scm-provider-gitexe</artifactId>
-                        <version>1.9</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.4.2</version>
+        <configuration>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <!-- Keep changes in the local repo, push will be done afterwards -->
+          <pushChanges>false</pushChanges>
+          <localCheckout>true</localCheckout>
+          <!-- Use a better name for the tag -->
+          <tagNameFormat>${project.artifactId}-${project.version}</tagNameFormat>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.9</version>
+          </dependency>
+        </dependencies>
+      </plugin>
 		</plugins>
 	</build>
 

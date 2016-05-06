@@ -2,6 +2,9 @@
 The Java ImageIO plugin for JBIG2 enables access to images encoded using the JBIG2 image compression standard.
 Please [tell us](mailto:solutions@levigo.de) about your experience!
 
+## Status
+[![Build Status](https://travis-ci.org/levigo/jbig2-imageio.svg?branch=master)](https://travis-ci.org/levigo/jbig2-imageio)
+
 ## Features
 The key features of the plugin are:
 

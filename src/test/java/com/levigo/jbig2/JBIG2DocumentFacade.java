@@ -24,6 +24,11 @@ import javax.imageio.stream.ImageInputStream;
 import com.levigo.jbig2.err.JBIG2Exception;
 
 public class JBIG2DocumentFacade extends JBIG2Document {
+  
+  public static JBIG2Document doc(ImageInputStream doc, ImageInputStream globals) throws IOException {
+    final JBIG2Document globalsDoc = new JBIG2Document(globals);
+    return new JBIG2Document(doc, globalsDoc.getGlobalSegments());
+  }
 
   public JBIG2DocumentFacade(ImageInputStream input) throws IOException {
     super(input);

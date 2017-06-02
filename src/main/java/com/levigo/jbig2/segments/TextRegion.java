@@ -863,17 +863,16 @@ public class TextRegion implements Region {
       } else {
 
         long runLength = 0;
+        long currCodeLength = 0;
         if (code == 32) {
           runLength = 3 + subInputStream.readBits(2);
+          if (counter > 0) {
+            currCodeLength = previousCodeLength;
+          }
         } else if (code == 33) {
           runLength = 3 + subInputStream.readBits(3);
         } else if (code == 34) {
           runLength = 11 + subInputStream.readBits(7);
-        }
-
-        long currCodeLength = 0;
-        if (counter > 0) {
-          currCodeLength = previousCodeLength;
         }
 
         for (int j = 0; j < runLength; j++) {

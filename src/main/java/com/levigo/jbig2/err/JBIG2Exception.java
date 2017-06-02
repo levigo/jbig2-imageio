@@ -19,9 +19,6 @@ package com.levigo.jbig2.err;
 
 /**
  * Identifies a JBIG2 exception.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 public class JBIG2Exception extends Exception {
 

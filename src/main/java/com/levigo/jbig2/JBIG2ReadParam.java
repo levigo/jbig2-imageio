@@ -25,8 +25,6 @@ import javax.imageio.ImageReadParam;
 /**
  * This class extends {@code ImageReadParam} and contains region of interest and scale / subsampling
  * functionality
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
  */
 public class JBIG2ReadParam extends ImageReadParam {
 

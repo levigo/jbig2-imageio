@@ -37,9 +37,6 @@ import com.levigo.jbig2.util.log.LoggerFactory;
 
 /**
  * This class represents a JBIG2 page.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 class JBIG2Page {
 

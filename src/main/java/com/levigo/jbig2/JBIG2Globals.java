@@ -32,9 +32,6 @@ import com.levigo.jbig2.util.log.LoggerFactory;
  * 
  * This segments will be decoded on demand and all results are stored in the document object and can
  * be retrieved from there.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 public class JBIG2Globals {
   private static final Logger log = LoggerFactory.getLogger(JBIG2Globals.class);

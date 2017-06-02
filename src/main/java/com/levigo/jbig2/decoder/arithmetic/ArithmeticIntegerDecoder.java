@@ -21,9 +21,6 @@ import java.io.IOException;
 
 /**
  * This class represents the arithmetic integer decoder, described in ISO/IEC 14492:2001 (Annex A).
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 public class ArithmeticIntegerDecoder {
 

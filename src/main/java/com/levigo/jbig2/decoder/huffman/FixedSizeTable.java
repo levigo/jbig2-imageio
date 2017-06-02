@@ -21,9 +21,6 @@ import java.util.List;
 
 /**
  * This class represents a fixed size huffman table.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * @author Benjamin Zindel
  */
 public class FixedSizeTable extends HuffmanTable {
   public FixedSizeTable(List<Code> runCodeTable) {

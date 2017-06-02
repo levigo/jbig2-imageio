@@ -44,9 +44,6 @@ import com.levigo.jbig2.util.log.LoggerFactory;
 
 /**
  * This class represented the segment type "Text region", 7.4.3, page 56.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * @author Benjamin Zindel
  */
 public class TextRegion implements Region {
 

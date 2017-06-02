@@ -42,9 +42,6 @@ import com.levigo.jbig2.util.log.LoggerFactory;
 /**
  * This class represents the data of segment type "Symbol dictionary". Parsing is described in
  * 7.4.2.1.1 - 7.4.1.1.5 and decoding procedure is described in 6.5.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * @author Benjamin Zindel
  */
 public class SymbolDictionary implements Dictionary {
 

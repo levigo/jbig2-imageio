@@ -24,8 +24,6 @@ import com.levigo.jbig2.util.ServiceLookup;
 /**
  * Retrieves a {@link Cache} via registered {@link CacheBridge} through
  * <code>META-INF/services</code> lookup.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
  */
 public class CacheFactory {
 

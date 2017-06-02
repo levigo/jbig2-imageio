@@ -28,8 +28,6 @@ import javax.imageio.stream.ImageInputStream;
  * Necessary extension for ImageIO standard.
  * 
  * @see ImageReaderSpi
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
  */
 public class JBIG2ImageReaderSpi extends ImageReaderSpi {
 
@@ -45,7 +43,7 @@ public class JBIG2ImageReaderSpi extends ImageReaderSpi {
   private static final String[] MIME_TYPES = {
       "image/x-jbig2", "image/x-jb2"
   };
-  private static final Class<?>[] INPUT_TYPES = STANDARD_INPUT_TYPE;
+  private static final Class<?>[] INPUT_TYPES = { ImageInputStream.class };
 
   /**
    * According to D.4.1:

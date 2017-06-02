@@ -27,9 +27,6 @@ import javax.imageio.stream.ImageInputStreamImpl;
  * the wrapped stream. Read accesses to the wrapped stream are synchronized, so that users of this
  * stream need to deal with synchronization against other users of the same instance, but not
  * against other users of the wrapped stream.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * @author Benjamin Zindel
  */
 public class SubInputStream extends ImageInputStreamImpl {
 

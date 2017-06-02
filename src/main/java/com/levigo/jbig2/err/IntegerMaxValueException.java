@@ -19,9 +19,6 @@ package com.levigo.jbig2.err;
 
 /**
  * Can be used if the maximum value limit of an integer is exceeded.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 public class IntegerMaxValueException extends JBIG2Exception {
 

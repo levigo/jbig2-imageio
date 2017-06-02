@@ -17,9 +17,6 @@
 
 package com.levigo.jbig2.util.log;
 
-/**
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- */
 public interface Logger {
 
 

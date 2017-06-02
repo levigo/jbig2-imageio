@@ -26,9 +26,6 @@ import com.levigo.jbig2.decoder.huffman.HuffmanTable.Code;
 
 /**
  * Represents a out of band node in a huffman tree.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * @author Benjamin Zindel
  */
 class OutOfBandNode extends Node {
 

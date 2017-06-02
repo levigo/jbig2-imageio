@@ -17,9 +17,6 @@
 
 package com.levigo.jbig2.util.cache;
 
-/**
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- */
 public class SoftReferenceCacheBridge implements CacheBridge {
 
   private static final SoftReferenceCache cache = new SoftReferenceCache();

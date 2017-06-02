@@ -29,9 +29,6 @@ import com.levigo.jbig2.util.CombinationOperator;
 /**
  * This class represents the "Region segment information" field, 7.4.1 (page 50). <br>
  * Every region segment data starts with this part.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 public class RegionSegmentInformation implements SegmentData {
 

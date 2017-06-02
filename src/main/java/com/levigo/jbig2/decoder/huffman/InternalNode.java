@@ -26,9 +26,6 @@ import com.levigo.jbig2.decoder.huffman.HuffmanTable.Code;
 
 /**
  * This class represents an internal node of a huffman tree. It contains two child nodes.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * @author Benjamin Zindel
  */
 class InternalNode extends Node {
   private final int depth;

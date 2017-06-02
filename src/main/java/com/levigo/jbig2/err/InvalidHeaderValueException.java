@@ -19,9 +19,6 @@ package com.levigo.jbig2.err;
 
 /**
  * Can be used if a segment header value is invalid.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 public class InvalidHeaderValueException extends JBIG2Exception {
 

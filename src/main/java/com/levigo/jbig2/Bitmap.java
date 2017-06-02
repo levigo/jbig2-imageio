@@ -21,8 +21,6 @@ import java.awt.Rectangle;
 
 /**
  * This class represents a bi-level image that is organized like a bitmap.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
  */
 public class Bitmap {
 

@@ -22,11 +22,6 @@ import java.io.InputStream;
 
 import javax.imageio.stream.ImageInputStream;
 
-/**
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * @author Benjamin Zindel
- */
 public interface InputStreamFactory {
   public ImageInputStream getInputStream(InputStream is) throws IOException;
 }

@@ -19,9 +19,6 @@ package com.levigo.jbig2.decoder.mmr;
 
 /**
  * Constants for MMR (de)compression.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * @author Benjamin Zindel
  */
 public class MMRConstants {
   public static final int COMP_FAXG3 = 0;

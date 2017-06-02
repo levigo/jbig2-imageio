@@ -27,9 +27,6 @@ import com.levigo.jbig2.io.SubInputStream;
 
 /**
  * This class represents a "Table" segment. It handles custom tables, see Annex B.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * @author Benjamin Zindel
  */
 public class Table implements SegmentData {
 

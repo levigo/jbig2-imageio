@@ -24,11 +24,6 @@ import javax.imageio.stream.FileCacheImageInputStream;
 import javax.imageio.stream.ImageInputStream;
 import javax.imageio.stream.MemoryCacheImageInputStream;
 
-/**
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * @author Benjamin Zindel
- */
 public class DefaultInputStreamFactory implements InputStreamFactory {
 
   public ImageInputStream getInputStream(InputStream is) {

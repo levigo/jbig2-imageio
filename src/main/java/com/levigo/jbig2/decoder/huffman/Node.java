@@ -23,9 +23,6 @@ import javax.imageio.stream.ImageInputStream;
 
 /**
  * Base class for all nodes in a huffman tree.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * @author Benjamin Zindel
  */
 abstract class Node {
   protected abstract long decode(ImageInputStream iis) throws IOException;

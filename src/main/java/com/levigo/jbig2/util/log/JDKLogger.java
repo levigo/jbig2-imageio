@@ -19,11 +19,6 @@ package com.levigo.jbig2.util.log;
 
 import java.util.logging.Level;
 
-/**
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
- */
 public class JDKLogger implements Logger {
   final java.util.logging.Logger wrappedLogger;
 

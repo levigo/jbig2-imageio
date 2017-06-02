@@ -23,8 +23,6 @@ import com.levigo.jbig2.util.ServiceLookup;
 
 /**
  * Retrieves a {@link Logger} via registered {@link LoggerBridge} through META-INF/services lookup.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">M. Krzikalla</a>
  */
 public class LoggerFactory {
 

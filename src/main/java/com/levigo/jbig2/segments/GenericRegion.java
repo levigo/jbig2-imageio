@@ -34,8 +34,6 @@ import com.levigo.jbig2.util.log.LoggerFactory;
  * This class represents a generic region segment.<br>
  * Parsing is done as described in 7.4.5.<br>
  * Decoding procedure is done as described in 6.2.5.7 and 7.4.6.4.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
  */
 public class GenericRegion implements Region {
 

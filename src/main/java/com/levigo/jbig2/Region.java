@@ -25,9 +25,6 @@ import com.levigo.jbig2.segments.RegionSegmentInformation;
 
 /**
  * Interface for all JBIG2 region segments.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 public interface Region extends SegmentData {
 

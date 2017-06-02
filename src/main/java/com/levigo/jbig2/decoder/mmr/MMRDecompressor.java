@@ -27,9 +27,6 @@ import com.levigo.jbig2.Bitmap;
 
 /**
  * A decompressor for MMR compression.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * @author Benjamin Zindel
  */
 public class MMRDecompressor {
 

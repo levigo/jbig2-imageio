@@ -20,8 +20,6 @@ package com.levigo.jbig2.image;
 
 /**
  * A FilterType enum for defining certain downscale filters to apply.
- *
- * @author <a href="mailto:c.koehler@levigo.de">Carolin Koehler</a>
  */
 public enum FilterType {
   Bessel,

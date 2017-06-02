@@ -34,8 +34,6 @@ import com.levigo.jbig2.util.log.LoggerFactory;
 /**
  * This class represents the data of segment type "Halftone region". Parsing is described in 7.4.5,
  * page 67. Decoding procedure in 6.6.5 and 7.4.5.2.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
  */
 public class HalftoneRegion implements Region {
 

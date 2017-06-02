@@ -25,9 +25,6 @@ import com.levigo.jbig2.io.SubInputStream;
 
 /**
  * Interface for all data parts of segments.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 public interface SegmentData {
 

@@ -23,9 +23,6 @@ import com.levigo.jbig2.io.SubInputStream;
 
 /**
  * <b>TODO:</b> This class is not implemented yet and empty. Wait for use cases.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 public class Profiles implements SegmentData {
 

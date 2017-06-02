@@ -19,9 +19,6 @@ package com.levigo.jbig2.util;
 
 /**
  * This enumeration keeps the available logical operator defined in the JBIG2 ISO standard.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 public enum CombinationOperator {
   OR, AND, XOR, XNOR, REPLACE;

@@ -20,9 +20,6 @@ package com.levigo.jbig2.util.cache;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 
-/**
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- */
 public class SoftReferenceCache implements Cache {
 
   private HashMap<Object, SoftReference<?>> cache = new HashMap<Object, SoftReference<?>>();

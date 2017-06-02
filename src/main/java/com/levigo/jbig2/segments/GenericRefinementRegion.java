@@ -33,8 +33,6 @@ import com.levigo.jbig2.util.log.LoggerFactory;
 /**
  * This class represents a generic refinement region and implements the procedure described in JBIG2
  * ISO standard, 6.3 and 7.4.7.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
  */
 public class GenericRefinementRegion implements Region {
   private static final Logger log = LoggerFactory.getLogger(GenericRefinementRegion.class);

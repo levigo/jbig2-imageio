@@ -28,8 +28,6 @@ import javax.imageio.stream.ImageInputStream;
  * Necessary extension for ImageIO standard.
  * 
  * @see ImageReaderSpi
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
  */
 public class JBIG2ImageReaderSpi extends ImageReaderSpi {
 

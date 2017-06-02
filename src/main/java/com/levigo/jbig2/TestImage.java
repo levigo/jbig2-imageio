@@ -41,9 +41,6 @@ import javax.swing.JScrollPane;
 
 /**
  * This is a utility class. It can be used to show intermediary results.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 public class TestImage extends JFrame {
   private static final long serialVersionUID = 7353175320371957550L;

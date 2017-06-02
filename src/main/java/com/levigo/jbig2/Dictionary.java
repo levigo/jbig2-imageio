@@ -25,9 +25,6 @@ import com.levigo.jbig2.err.InvalidHeaderValueException;
 
 /**
  * Interface for all JBIG2 dictionaries segments.
- * 
- * @author <a href="mailto:m.krzikalla@levigo.de">Matthäus Krzikalla</a>
- * 
  */
 public interface Dictionary extends SegmentData {
 

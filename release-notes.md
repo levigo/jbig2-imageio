@@ -1,7 +1,11 @@
 # Release notes
 
 ## Version 2.0.0 (2017-06-02)
-- [Issue #21](https://github.com/levigo/jbig2-imageio/issues/21): Move repetition of previous code length into correct scope. See ([Merge request #22](https://github.com/levigo/jbig2-imageio/pull/22)). 
+- Java 9 support.
+- [Issue #10](https://github.com/levigo/jbig2-imageio/issues/10): Use general service loading instead of Image I/O specific. See [merge request #18](https://github.com/levigo/jbig2-imageio/pull/18).
+- [Issue #11](https://github.com/levigo/jbig2-imageio/issues/11): Remove @author info from javadocs.
+- [Issue #16](https://github.com/levigo/jbig2-imageio/issues/16): Replace deprecated ```STANDARD_INPUT_TYPE``` constant with self-created array.
+- [Issue #21](https://github.com/levigo/jbig2-imageio/issues/21): Move repetition of previous code length into correct scope. See [merge request #22](https://github.com/levigo/jbig2-imageio/pull/22). 
 
 ## Version 1.6.5 (2015-12-29)
 - Issue #5: Deployment to maven central

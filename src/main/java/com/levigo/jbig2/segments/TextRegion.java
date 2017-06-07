@@ -821,10 +821,20 @@ public class TextRegion implements Region {
     amountOfSymbols = symbols.size();
   }
 
-  private HuffmanTable getUserTable(int referToTable) throws InvalidHeaderValueException, IOException {
-    final SegmentHeader s = segmentHeader.getRtSegments()[referToTable];
-    final Table t = (Table) s.getSegmentData();
-    return new EncodedTable(t);
+  private HuffmanTable getUserTable(final int tablePosition) throws InvalidHeaderValueException, IOException {
+    int tableCounter = 0;
+
+    for (final SegmentHeader referredToSegmentHeader : segmentHeader.getRtSegments()) {
+      if (referredToSegmentHeader.getSegmentType() == 53) {
+        if (tableCounter == tablePosition) {
+          final Table t = (Table) referredToSegmentHeader.getSegmentData();
+          return new EncodedTable(t);
+        } else {
+          tableCounter++;
+        }
+      }
+    }
+    return null;
   }
 
   private void symbolIDCodeLengths() throws IOException {

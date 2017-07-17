@@ -5,6 +5,7 @@ jdk:
   - oraclejdk8
   - oraclejdk9
   - openjdk7
+sudo: required  
 #addons:
 #  apt:
 #    packages:

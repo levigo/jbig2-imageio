@@ -1,12 +1,8 @@
 language: java
 dist: trusty
 jdk:
-  - oraclejdk7
+# Disable for now due to https://github.com/travis-ci/travis-ci/issues/7019
+#  - oraclejdk7
   - oraclejdk8
   - oraclejdk9
   - openjdk7
-sudo: required  
-#addons:
-#  apt:
-#    packages:
-#      - oracle-java9-installer

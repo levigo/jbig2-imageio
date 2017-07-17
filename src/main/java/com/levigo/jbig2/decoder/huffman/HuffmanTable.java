@@ -61,7 +61,6 @@ public abstract class HuffmanTable {
     for (Code c : codeTable) {
       rootNode.append(c);
     }
-    System.out.println("");
   }
 
   public long decode(ImageInputStream iis) throws IOException {
@@ -96,7 +95,7 @@ public abstract class HuffmanTable {
       lenCount[c.prefixLength]++;
     }
 
-    int curCode, curTemp;
+    int curCode;
     int firstCode[] = new int[lenCount.length + 1];
     lenCount[0] = 0;
 

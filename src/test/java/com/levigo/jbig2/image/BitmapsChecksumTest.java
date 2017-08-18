@@ -122,9 +122,7 @@ public class BitmapsChecksumTest {
 
   @Test
   public void test() throws IOException, JBIG2Exception, NoSuchAlgorithmException {
-    final URL imageUrl = JBIG2ImageReaderDemo.class.getResource(resourcePath);
-
-    final InputStream inputStream = new FileInputStream(new File(imageUrl.getPath()));
+    final InputStream inputStream = JBIG2ImageReaderDemo.class.getResourceAsStream(resourcePath);
     final InputStreamFactory disf = new DefaultInputStreamFactory();
     final ImageInputStream iis = disf.getInputStream(inputStream);
 

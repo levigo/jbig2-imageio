@@ -1,5 +1,12 @@
 # Release notes
 
+## Version 3.0.0 (pending)
+- [Issue #30](https://github.com/levigo/jbig2-imageio/issues/30): Transition project to Apache PDFBox.
+- [Issue #25](https://github.com/levigo/jbig2-imageio/issues/25): Build tests fail if project path has a space.
+- [Issue #26](https://github.com/levigo/jbig2-imageio/issues/26): Huffman user tables in text regions.
+- [Issue #27](https://github.com/levigo/jbig2-imageio/issues/27): Problems in standard Huffman tables.
+- [Issue #32](https://github.com/levigo/jbig2-imageio/issues/32): Newlines printed to stdout.
+
 ## Version 2.0.0 (2017-06-02)
 - Java 9 support.
 - [Issue #10](https://github.com/levigo/jbig2-imageio/issues/10): Use general service loading instead of Image I/O specific. See [merge request #18](https://github.com/levigo/jbig2-imageio/pull/18).

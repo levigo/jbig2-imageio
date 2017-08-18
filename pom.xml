@@ -1,26 +1,41 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.levigo.jbig2</groupId>
-	<artifactId>levigo-jbig2-imageio</artifactId>
+    <parent>
+        <groupId>org.apache</groupId>
+        <artifactId>apache</artifactId>
+        <version>18</version>
+        <relativePath/>
+    </parent>
+    
+	<groupId>org.apache.pdfbox.jbig2</groupId>
+	<artifactId>pdfbox-jbig2-imageio</artifactId>
 	<name>jbig2-imageio</name>
-	<version>2.1-SNAPSHOT</version>
+	<version>3.0-SNAPSHOT</version>
 	
-	<description>Java Image I/O plugin for reading JBIG2-compressed image data</description>
+	<description>
+		Java Image I/O plugin for reading JBIG2-compressed image data. 
+		Formerly known as the levigo JBig2 ImageIO plugin (com.levigo.jbig2:levigo-jbig2-imageio).
+	</description>
+	
 	<url>https://github.com/levigo/jbig2-imageio</url>
-	
-	<licenses>
-		<license>
-			<name>GPL v3</name>
-			<url>http://www.gnu.org/licenses/gpl.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-	
+
 	<developers>
 		<developer>
+			<id>krzikams</id>
 			<name>Matthäus Mayer</name>
 			<email>m.mayer@levigo.de</email>
+			<roles>
+				<role>retired developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>hennejg</id>
+			<name>Jörg Henne</name>
+			<email>j.henne@levigo.de</email>
+			<roles>
+				<role>project transition to ASL/ASF</role>
+			</roles>
 		</developer>
 	</developers>
 
@@ -38,10 +53,10 @@
 	</distributionManagement>
 
 	<scm>
-    <connection>scm:git:ssh://github.com/levigo/jbig2-imageio.git</connection>
+    	<connection>scm:git:ssh://github.com/levigo/jbig2-imageio.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/levigo/jbig2-imageio.git</developerConnection>
-    <url>https://github.com/levigo/jbig2-imageio</url>
-    <tag>HEAD</tag>
+    	<url>https://github.com/levigo/jbig2-imageio</url>
+    	<tag>HEAD</tag>
 	</scm>
 
 	<dependencies>
@@ -57,7 +72,6 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
@@ -104,7 +118,6 @@
 
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
-        <version>2.4.2</version>
         <configuration>
           <autoVersionSubmodules>true</autoVersionSubmodules>
           <!-- Keep changes in the local repo, push will be done afterwards -->

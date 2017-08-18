@@ -47,9 +47,9 @@ The JBIG2 ImageIO-Plugin is available from [Maven Central](http://search.maven.o
 To use the plugin within a Maven POM-based project, simply include a dependency to the following artifact in the appropriate ```pom.xml```:
 
     <dependency>
-      <groupId>com.levigo.jbig2</groupId>
-      <artifactId>levigo-jbig2-imageio</artifactId>
-      <version>2.0</version>
+      <groupId>org.apache.pdfbox.jbig2</groupId>
+		<artifactId>pdfbox-jbig2-imageio</artifactId>
+      <version>3.0-SNAPSHOT</version>
     </dependency>
 
 ### How to deal with embedded JBIG2 data

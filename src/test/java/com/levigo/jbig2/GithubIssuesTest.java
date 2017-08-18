@@ -16,8 +16,8 @@
  */
 package com.levigo.jbig2;
 
-import static com.levigo.jbig2.ChecksumCalculator.md5;
-import static com.levigo.jbig2.JBIG2DocumentFacade.doc;
+import static com.levigo.jbig2.ChecksumCalculator.*;
+import static com.levigo.jbig2.JBIG2DocumentFacade.*;
 
 import java.io.InputStream;
 
@@ -39,7 +39,7 @@ public class GithubIssuesTest {
   @Test
   public void issue21() throws Exception {
     final byte[] md5Expected = new byte[]{
-        -79, 69, 103, 64, 59, 120, -74, 117, -96, -86, -23, 36, -122, 113, 101, -99
+        83, 74, -69, -60, -122, -99, 21, 126, -115, 13, 9, 107, -31, -109, 77, -119
     };
 
     final InputStream imageStream = getClass().getResourceAsStream("/com/levigo/jbig2/github/21.jb2");

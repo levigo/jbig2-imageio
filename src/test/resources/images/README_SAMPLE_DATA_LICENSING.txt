@@ -13,9 +13,9 @@ following terms:
 	from International Telecommunication Union (“ITU”), which owns all property
 	rights (including intellectual property rights) to Recommendation ITU-T 
 	T.88 (2000/02). This ITU Information is made available to everyone for free
-	and	may be used for non-commercial purposes; for any other use please 
+	and may be used for non-commercial purposes; for any other use please 
 	contact	ITU at sales@itu.int. The sole responsibility for extracting the 
 	ITU Information and the responsibility for any errors or deficiencies in 
-	the	package lies exclusively with the Apache PDFBox project. ITU is not 
-	involved in	the development of the package or the extraction and use of 
+	the package lies exclusively with the Apache PDFBox project. ITU is not 
+	involved in the development of the package or the extraction and use of 
 	ITU Information	contained therein.

@@ -73,7 +73,7 @@ public class SymbolDictionary implements Dictionary {
   private int amountOfExportSymbolss;
 
   /** Number of new symbols, 7.4.2.1.5 */
-  private int amountOfNewSymbolss;
+  private int amountOfNewSymbols;
 
   /** Further parameters */
   private SegmentHeader segmentHeader;
@@ -231,7 +231,7 @@ public class SymbolDictionary implements Dictionary {
   }
 
   private void readAmountOfNewSymbols() throws IOException {
-    amountOfNewSymbolss = (int) subInputStream.readBits(32); // & 0xffffffff;
+    amountOfNewSymbols = (int) subInputStream.readBits(32); // & 0xffffffff;
   }
 
   private void setInSyms() throws IOException, InvalidHeaderValueException, IntegerMaxValueException {
@@ -328,12 +328,12 @@ public class SymbolDictionary implements Dictionary {
       }
 
       /* 6.5.5 1) */
-      newSymbols = new Bitmap[amountOfNewSymbolss];
+      newSymbols = new Bitmap[amountOfNewSymbols];
 
       /* 6.5.5 2) */
       int[] newSymbolsWidths = null;
       if (isHuffmanEncoded && !useRefinementAggregation) {
-        newSymbolsWidths = new int[amountOfNewSymbolss];
+        newSymbolsWidths = new int[amountOfNewSymbols];
       }
 
       setSymbolsArray();
@@ -343,7 +343,7 @@ public class SymbolDictionary implements Dictionary {
       amountOfDecodedSymbols = 0;
 
       /* 6.5.5 4 a) */
-      while (amountOfDecodedSymbols < amountOfNewSymbolss) {
+      while (amountOfDecodedSymbols < amountOfNewSymbols) {
 
         /* 6.5.5 4 b) */
         heightClassHeight += decodeHeightClassDeltaHeight();
@@ -353,20 +353,20 @@ public class SymbolDictionary implements Dictionary {
 
         /* 6.5.5 4 c) */
 
-        /* 
-         * Decode symbols until OOB (normal exit) or the expected number 
-         * of symbols have been decoded.
-         * 
-         * The latter exit condition guards against pathological cases where a symbol's DW 
-         * never contains OOB and thus never terminates.
-         */
-        while (amountOfDecodedSymbols < amountOfNewSymbolss) {
+        // Repeat until OOB - OOB sends a break;
+        while (true) {
           /* 4 c) i) */
           final long differenceWidth = decodeDifferenceWidth();
 
-          // If result is OOB, then all the symbols in this height
-          // class has been decoded; proceed to step 4 d)
-          if (differenceWidth == Long.MAX_VALUE) {
+          /* 
+           * If result is OOB, then all the symbols in this height
+           * class has been decoded; proceed to step 4 d). Also exit, if the expected number of
+           * symbols have been decoded.
+           * 
+           * The latter exit condition guards against pathological cases where a symbol's
+           * DW never contains OOB and thus never terminates.
+           */
+          if (differenceWidth == Long.MAX_VALUE || amountOfDecodedSymbols >= amountOfNewSymbols) {
             break;
           }
 
@@ -720,7 +720,7 @@ public class SymbolDictionary implements Dictionary {
   private void setExportedSymbols(final int[] toExportFlags) {
     exportSymbols = new ArrayList<Bitmap>(amountOfExportSymbolss);
 
-    for (int i = 0; i < amountOfImportedSymbolss + amountOfNewSymbolss; i++) {
+    for (int i = 0; i < amountOfImportedSymbolss + amountOfNewSymbols; i++) {
 
       if (toExportFlags[i] == 1) {
         if (i < amountOfImportedSymbolss) {
@@ -735,9 +735,9 @@ public class SymbolDictionary implements Dictionary {
   private int[] getToExportFlags() throws IOException, InvalidHeaderValueException {
     int currentExportFlag = 0;
     long exRunLength = 0;
-    final int[] exportFlags = new int[amountOfImportedSymbolss + amountOfNewSymbolss];
+    final int[] exportFlags = new int[amountOfImportedSymbolss + amountOfNewSymbols];
 
-    for (int exportIndex = 0; exportIndex < amountOfImportedSymbolss + amountOfNewSymbolss; exportIndex += exRunLength) {
+    for (int exportIndex = 0; exportIndex < amountOfImportedSymbolss + amountOfNewSymbols; exportIndex += exRunLength) {
 
       if (isHuffmanEncoded) {
         exRunLength = StandardTables.getTable(1).decode(subInputStream);
@@ -782,9 +782,9 @@ public class SymbolDictionary implements Dictionary {
    */
   private int getSbSymCodeLen() throws IOException {
     if (isHuffmanEncoded) {
-      return Math.max((int) (Math.ceil(Math.log(amountOfImportedSymbolss + amountOfNewSymbolss) / Math.log(2))), 1);
+      return Math.max((int) (Math.ceil(Math.log(amountOfImportedSymbolss + amountOfNewSymbols) / Math.log(2))), 1);
     } else {
-      return (int) (Math.ceil(Math.log(amountOfImportedSymbolss + amountOfNewSymbolss) / Math.log(2)));
+      return (int) (Math.ceil(Math.log(amountOfImportedSymbolss + amountOfNewSymbols) / Math.log(2)));
     }
   }
 

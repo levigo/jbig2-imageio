@@ -114,7 +114,7 @@ public class SymbolDictionary implements Dictionary {
   public SymbolDictionary() {
   }
 
-  public SymbolDictionary(SubInputStream subInputStream, SegmentHeader segmentHeader) throws IOException {
+  public SymbolDictionary(final SubInputStream subInputStream, final SegmentHeader segmentHeader) throws IOException {
     this.subInputStream = subInputStream;
     this.segmentHeader = segmentHeader;
   }
@@ -343,7 +343,7 @@ public class SymbolDictionary implements Dictionary {
       amountOfDecodedSymbols = 0;
 
       /* 6.5.5 4 a) */
-      while (amountOfDecodedSymbols != amountOfNewSymbolss) {
+      while (amountOfDecodedSymbols < amountOfNewSymbolss) {
 
         /* 6.5.5 4 b) */
         heightClassHeight += decodeHeightClassDeltaHeight();
@@ -353,8 +353,14 @@ public class SymbolDictionary implements Dictionary {
 
         /* 6.5.5 4 c) */
 
-        // Repeat until OOB - OOB sends a break;
-        while (true) {
+        /* 
+         * Decode symbols until OOB (normal exit) or the expected number 
+         * of symbols have been decoded.
+         * 
+         * The latter exit condition guards against pathological cases where a symbol's DW 
+         * never contains OOB and thus never terminates.
+         */
+        while (amountOfDecodedSymbols < amountOfNewSymbolss) {
           /* 4 c) i) */
           final long differenceWidth = decodeDifferenceWidth();
 
@@ -711,7 +717,7 @@ public class SymbolDictionary implements Dictionary {
     }
   }
 
-  private void setExportedSymbols(int[] toExportFlags) {
+  private void setExportedSymbols(final int[] toExportFlags) {
     exportSymbols = new ArrayList<Bitmap>(amountOfExportSymbolss);
 
     for (int i = 0; i < amountOfImportedSymbolss + amountOfNewSymbolss; i++) {

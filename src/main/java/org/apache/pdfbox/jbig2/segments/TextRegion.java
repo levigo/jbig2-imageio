@@ -32,8 +32,8 @@ import org.apache.pdfbox.jbig2.decoder.arithmetic.CX;
 import org.apache.pdfbox.jbig2.decoder.huffman.EncodedTable;
 import org.apache.pdfbox.jbig2.decoder.huffman.FixedSizeTable;
 import org.apache.pdfbox.jbig2.decoder.huffman.HuffmanTable;
-import org.apache.pdfbox.jbig2.decoder.huffman.StandardTables;
 import org.apache.pdfbox.jbig2.decoder.huffman.HuffmanTable.Code;
+import org.apache.pdfbox.jbig2.decoder.huffman.StandardTables;
 import org.apache.pdfbox.jbig2.err.IntegerMaxValueException;
 import org.apache.pdfbox.jbig2.err.InvalidHeaderValueException;
 import org.apache.pdfbox.jbig2.image.Bitmaps;
@@ -124,7 +124,7 @@ public class TextRegion implements Region {
   public TextRegion() {
   }
 
-  public TextRegion(SubInputStream subInputStream, SegmentHeader segmentHeader) {
+  public TextRegion(final SubInputStream subInputStream, final SegmentHeader segmentHeader) {
     this.subInputStream = subInputStream;
     this.regionInfo = new RegionSegmentInformation(subInputStream);
     this.segmentHeader = segmentHeader;
@@ -407,8 +407,15 @@ public class TextRegion implements Region {
       boolean first = true;
       currentS = 0;
 
-      // do until OOB
-      for (;;) {
+      /* 
+       * Decode symbols instances from strip until OOB (normal exit) or the expected number 
+       * of instances have been decoded.
+       * 
+       * The latter exit condition guards against pathological cases where a strip's
+       * S never contains OOB and thus never terminates as illustrated in
+       * https://bugs.chromium.org/p/chromium/issues/detail?id=450971 case  pdfium-loop2.pdf.
+       */
+      while (instanceCounter < amountOfSymbolInstances) {
         /* 3 c) i) - first symbol instance in the strip */
         if (first) {
           /* 6.4.7 */
@@ -539,7 +546,7 @@ public class TextRegion implements Region {
     return 0;
   }
 
-  private final Bitmap decodeIb(long r, long id) throws IOException, InvalidHeaderValueException,
+  private final Bitmap decodeIb(final long r, final long id) throws IOException, InvalidHeaderValueException,
       IntegerMaxValueException {
     Bitmap ib;
 
@@ -765,7 +772,7 @@ public class TextRegion implements Region {
 
   }
 
-  private final void blit(Bitmap ib, long t) {
+  private final void blit(final Bitmap ib, long t) {
     if (isTransposed == 0 && (referenceCorner == 2 || referenceCorner == 3)) {
       currentS += ib.getWidth() - 1;
     } else if (isTransposed == 1 && (referenceCorner == 0 || referenceCorner == 2)) {
@@ -899,7 +906,7 @@ public class TextRegion implements Region {
 
   }
 
-  public void init(SegmentHeader header, SubInputStream sis) throws InvalidHeaderValueException,
+  public void init(final SegmentHeader header, final SubInputStream sis) throws InvalidHeaderValueException,
       IntegerMaxValueException, IOException {
     this.segmentHeader = header;
     this.subInputStream = sis;
@@ -907,8 +914,8 @@ public class TextRegion implements Region {
     parseHeader();
   }
 
-  protected void setContexts(CX cx, CX cxIADT, CX cxIAFS, CX cxIADS, CX cxIAIT, CX cxIAID, CX cxIARDW, CX cxIARDH,
-      CX cxIARDX, CX cxIARDY) {
+  protected void setContexts(final CX cx, final CX cxIADT, final CX cxIAFS, final CX cxIADS, final CX cxIAIT, final CX cxIAID, final CX cxIARDW, final CX cxIARDH,
+      final CX cxIARDX, final CX cxIARDY) {
     this.cx = cx;
 
     this.cxIADT = cxIADT;
@@ -924,12 +931,12 @@ public class TextRegion implements Region {
     this.cxIARDY = cxIARDY;
   }
 
-  protected void setParameters(ArithmeticDecoder arithmeticDecoder, ArithmeticIntegerDecoder iDecoder,
-      boolean isHuffmanEncoded, boolean sbRefine, int sbw, int sbh, long sbNumInstances, int sbStrips, int sbNumSyms,
-      short sbDefaultPixel, short sbCombinationOperator, short transposed, short refCorner, short sbdsOffset,
-      short sbHuffFS, short sbHuffDS, short sbHuffDT, short sbHuffRDWidth, short sbHuffRDHeight, short sbHuffRDX,
-      short sbHuffRDY, short sbHuffRSize, short sbrTemplate, short sbrATX[], short sbrATY[], ArrayList<Bitmap> sbSyms,
-      int sbSymCodeLen) {
+  protected void setParameters(final ArithmeticDecoder arithmeticDecoder, final ArithmeticIntegerDecoder iDecoder,
+      final boolean isHuffmanEncoded, final boolean sbRefine, final int sbw, final int sbh, final long sbNumInstances, final int sbStrips, final int sbNumSyms,
+      final short sbDefaultPixel, final short sbCombinationOperator, final short transposed, final short refCorner, final short sbdsOffset,
+      final short sbHuffFS, final short sbHuffDS, final short sbHuffDT, final short sbHuffRDWidth, final short sbHuffRDHeight, final short sbHuffRDX,
+      final short sbHuffRDY, final short sbHuffRSize, final short sbrTemplate, final short sbrATX[], final short sbrATY[], final ArrayList<Bitmap> sbSyms,
+      final int sbSymCodeLen) {
 
     this.arithmeticDecoder = arithmeticDecoder;
 

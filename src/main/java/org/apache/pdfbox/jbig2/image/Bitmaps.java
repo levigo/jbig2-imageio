@@ -34,16 +34,31 @@ import org.apache.pdfbox.jbig2.util.CombinationOperator;
 
 public class Bitmaps {
 
+
+    int width;
+    int height;
+
+    Bitmap bitmapRefacoring = new Bitmap(width , height);
+
+    public int getHeightValue() {
+      return height;
+    }
+
+    public int getWidthValue() {
+      return width;
+    }
+
   public static WritableRaster asRaster(final Bitmap bitmap) {
     return asRaster(bitmap, FilterType.Gaussian);
   }
 
   public static WritableRaster asRaster(final Bitmap bitmap, final FilterType filterType) {
+    Bitmaps refactor = new Bitmaps();
     if (bitmap == null)
       throw new IllegalArgumentException("bitmap must not be null");
 
     final JBIG2ReadParam param = new JBIG2ReadParam(1, 1, 0, 0, new Rectangle(0, 0, bitmap.getWidth(),
-        bitmap.getHeight()), new Dimension(bitmap.getWidth(), bitmap.getHeight()));
+        refactor.getHeightValue()), new Dimension(refactor.getWidthValue(), refactor.getHeightValue()));
 
     return asRaster(bitmap, param, filterType);
   }

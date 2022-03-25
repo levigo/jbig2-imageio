@@ -26,7 +26,7 @@ abstract class Filter {
    * @param type the filter type
    * @return filter name
    */
-  public static String nameByType(final FilterType type) {
+  public static String filterNameByType(final FilterType type) {
     if (type == null)
       throw new IllegalArgumentException("type must not be null");
     return type.name();
@@ -38,7 +38,7 @@ abstract class Filter {
    * @param name the filter name
    * @return filter type
    */
-  public static FilterType typeByName(final String name) {
+  public static FilterType filterTypeByName(final String name) {
     if (name == null)
       throw new IllegalArgumentException("name must not be null");
     return FilterType.valueOf(name);
@@ -115,6 +115,21 @@ abstract class Filter {
       return p / q;
     }
 
+    private double calculateForDouble(double Pone[], double Qone[] , double x ){
+
+      double p, q;
+      p = Pone[5];
+      q = Qone[5];
+      for (int i = 4; i >= 0; i--) {
+        p = p * (8.0 / x) * (8.0 / x) + Pone[i];
+        q = q * (8.0 / x) * (8.0 / x) + Qone[i];
+      }
+      return p / q;
+
+
+    }
+
+
     private double P1(final double x) {
       double p, q;
 
@@ -128,13 +143,9 @@ abstract class Filter {
           0.4930396490181088979386097e+4, 0.2030775189134759322293574e+3, 0.1e+1
       };
 
-      p = Pone[5];
-      q = Qone[5];
-      for (i = 4; i >= 0; i--) {
-        p = p * (8.0 / x) * (8.0 / x) + Pone[i];
-        q = q * (8.0 / x) * (8.0 / x) + Qone[i];
-      }
-      return p / q;
+      double returnValue = calculateForDouble(Pone, Qone , x );
+
+      return returnValue;
     }
 
     private double Q1(final double x) {
@@ -150,13 +161,9 @@ abstract class Filter {
           0.18111867005523513506724158e+4, 0.1038187585462133728776636e+3, 0.1e+1
       };
 
-      p = Pone[5];
-      q = Qone[5];
-      for (i = 4; i >= 0; i--) {
-        p = p * (8.0 / x) * (8.0 / x) + Pone[i];
-        q = q * (8.0 / x) * (8.0 / x) + Qone[i];
-      }
-      return p / q;
+      double returnValue = calculateForDouble(Pone, Qone , x );
+
+      return returnValue;
     }
 
     private double BesselOrderOne(double x) {

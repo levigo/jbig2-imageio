@@ -16,7 +16,7 @@
  */
 
 package org.apache.pdfbox.jbig2.image;
-
+// Refactoring in class Filter
 
 abstract class Filter {
 

@@ -301,26 +301,10 @@ public class HalftoneRegion implements Region {
   }
 
   private int[][] computeGrayScaleValues(final Bitmap[] grayScalePlanes, final int bitsPerValue) {
-    // Gray-scale decoding procedure, page 98
-    final int[][] grayScaleValues = new int[hGridHeight][hGridWidth];
 
-    // 4)
-    for (int y = 0; y < hGridHeight; y++) {
-      for (int x = 0; x < hGridWidth; x += 8) {
-        final int minorWidth = hGridWidth - x > 8 ? 8 : hGridWidth - x;
-        int byteIndex = grayScalePlanes[0].getByteIndex(x, y);
+    HalftonecomputeGrayScaleValues newVariable = new HalftonecomputeGrayScaleValues();
 
-        for (int minorX = 0; minorX < minorWidth; minorX++) {
-          final int i = minorX + x;
-          grayScaleValues[y][i] = 0;
-
-          for (int j = 0; j < bitsPerValue; j++) {
-            grayScaleValues[y][i] += ((grayScalePlanes[j].getByte(byteIndex) >> (7 - i & 7)) & 1) * (1 << j);
-          }
-        }
-      }
-    }
-    return grayScaleValues;
+    return newVariable.computeGrayScaleValuesNew( grayScalePlanes, bitsPerValue, hGridHeight,hGridWidth );
   }
 
   private int computeX(final int m, final int n) {

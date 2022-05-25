@@ -1,0 +1,13 @@
+
+
+public interface ImageAbstractFactory {
+	public ImageInputStream getInputStream(InputStream is) throws IOException;
+    public static Cache getCache() {
+    return getCache(clsLoader != null ? clsLoader : CacheBridge.class.getClassLoader());
+  }
+  public static void setClassLoader(ClassLoader clsLoader) {
+    LoggerFactory.clsLoader = clsLoader;
+  }
+
+
+}

@@ -34,16 +34,36 @@ import org.apache.pdfbox.jbig2.util.CombinationOperator;
 
 public class Bitmaps {
 
+
+  int width;
+  int height;
+
+  Bitmap bitmapRefacoring = new Bitmap(width , height);
+
+  public int getHeightValue() {
+    return height;
+  }
+
+  public int getWidthValue() {
+    return width;
+  }
+
+  public static void blitShiftMain (short register , int dstIdx , int srcIdx , Bitmap dst , Bitmap src, int shiftVal2) {
+    byte oldByte = dst.getByte(dstIdx);
+    byte newByte = (byte) (register >> 8);
+  }
+
   public static WritableRaster asRaster(final Bitmap bitmap) {
     return asRaster(bitmap, FilterType.Gaussian);
   }
 
   public static WritableRaster asRaster(final Bitmap bitmap, final FilterType filterType) {
+    Bitmaps refactor = new Bitmaps();
     if (bitmap == null)
       throw new IllegalArgumentException("bitmap must not be null");
 
     final JBIG2ReadParam param = new JBIG2ReadParam(1, 1, 0, 0, new Rectangle(0, 0, bitmap.getWidth(),
-        bitmap.getHeight()), new Dimension(bitmap.getWidth(), bitmap.getHeight()));
+            refactor.getHeightValue()), new Dimension(refactor.getWidthValue(), refactor.getHeightValue()));
 
     return asRaster(bitmap, param, filterType);
   }
@@ -122,13 +142,13 @@ public class Bitmaps {
   }
 
   private static WritableRaster buildRaster(final Bitmap bitmap, final FilterType filterType, final double scaleX,
-      final double scaleY) {
+                                            final double scaleY) {
     final Rectangle dstBounds = new Rectangle(0, 0, //
-        (int) Math.round(bitmap.getWidth() * scaleX), //
-        (int) Math.round(bitmap.getHeight() * scaleY));
+            (int) Math.round(bitmap.getWidth() * scaleX), //
+            (int) Math.round(bitmap.getHeight() * scaleY));
 
     final WritableRaster dst = WritableRaster.createInterleavedRaster(DataBuffer.TYPE_BYTE, dstBounds.width,
-        dstBounds.height, 1, new Point());
+            dstBounds.height, 1, new Point());
 
     if (scaleX != 1 || scaleY != 1) {
       // scaling required
@@ -162,7 +182,7 @@ public class Bitmaps {
       throw new IllegalArgumentException("bitmap must not be null");
 
     final JBIG2ReadParam param = new JBIG2ReadParam(1, 1, 0, 0, new Rectangle(0, 0, bitmap.getWidth(),
-        bitmap.getHeight()), new Dimension(bitmap.getWidth(), bitmap.getHeight()));
+            bitmap.getHeight()), new Dimension(bitmap.getWidth(), bitmap.getHeight()));
 
     return asBufferedImage(bitmap, param, filterType);
   }
@@ -201,13 +221,13 @@ public class Bitmaps {
     } else {
 
       cm = new IndexColorModel(8, 2, //
-          new byte[]{
+              new byte[]{
+                      0x00, (byte) 0xff
+              }, new byte[]{
               0x00, (byte) 0xff
-          }, new byte[]{
+      }, new byte[]{
               0x00, (byte) 0xff
-          }, new byte[]{
-              0x00, (byte) 0xff
-          });
+      });
     }
 
     return new BufferedImage(cm, raster, false, null);
@@ -215,7 +235,7 @@ public class Bitmaps {
 
   /**
    * Returns the specified rectangle area of the bitmap.
-   * 
+   *
    * @param roi - A {@link Rectangle} that specifies the requested image section.
    * @return A {@code Bitmap} that represents the requested image section.
    */
@@ -261,7 +281,7 @@ public class Bitmaps {
   }
 
   private static void copyLine(Bitmap src, Bitmap dst, int sourceUpShift, int sourceDownShift, int padding,
-      int firstSourceByteOfLine, int lastSourceByteOfLine, boolean usePadding, int sourceOffset, int targetOffset) {
+                               int firstSourceByteOfLine, int lastSourceByteOfLine, boolean usePadding, int sourceOffset, int targetOffset) {
     for (int x = firstSourceByteOfLine; x < lastSourceByteOfLine; x++) {
 
       if (sourceOffset + 1 < src.getByteArray().length) {
@@ -288,7 +308,7 @@ public class Bitmaps {
 
   /**
    * Removes unnecessary bits from a byte.
-   * 
+   *
    * @param padding - The amount of unnecessary bits.
    * @param value - The byte that should be cleaned up.
    * @return A cleaned byte.
@@ -368,11 +388,11 @@ public class Bitmaps {
    * <p>
    * <b>Hint:</b> Please take a look at ISO/IEC 14492:2001 (E) for detailed definition and
    * description of the operators.
-   * 
+   *
    * @param value1 - The value that should be combined with value2.
    * @param value2 - The value that should be combined with value1.
    * @param op - The specified combination operator.
-   * 
+   *
    * @return The combination result.
    */
   public static byte combineBytes(byte value1, byte value2, CombinationOperator op) {
@@ -397,7 +417,7 @@ public class Bitmaps {
    * This method combines a given bitmap with the current instance.
    * <p>
    * Parts of the bitmap to blit that are outside of the target bitmap will be ignored.
-   * 
+   *
    * @param src - The bitmap that should be combined with the one of the current instance.
    * @param x - The x coordinate where the upper left corner of the bitmap to blit should be
    *          positioned.
@@ -445,15 +465,15 @@ public class Bitmaps {
       blitUnshifted(src, dst, startLine, lastLine, dstStartIdx, srcStartIdx, srcEndIdx, combinationOperator);
     } else if (specialCase) {
       blitSpecialShifted(src, dst, startLine, lastLine, dstStartIdx, srcStartIdx, srcEndIdx, toShift, shiftVal1,
-          shiftVal2, combinationOperator);
+              shiftVal2, combinationOperator);
     } else {
       blitShifted(src, dst, startLine, lastLine, dstStartIdx, srcStartIdx, srcEndIdx, toShift, shiftVal1, shiftVal2,
-          combinationOperator, padding);
+              combinationOperator, padding);
     }
   }
 
   private static void blitUnshifted(Bitmap src, Bitmap dst, int startLine, int lastLine, int dstStartIdx,
-      int srcStartIdx, int srcEndIdx, CombinationOperator op) {
+                                    int srcStartIdx, int srcEndIdx, CombinationOperator op) {
 
     for (int dstLine = startLine; dstLine < lastLine; dstLine++, dstStartIdx += dst.getRowStride(), srcStartIdx += src.getRowStride(), srcEndIdx += src.getRowStride()) {
       int dstIdx = dstStartIdx;
@@ -468,7 +488,7 @@ public class Bitmaps {
   }
 
   private static void blitSpecialShifted(Bitmap src, Bitmap dst, int startLine, int lastLine, int dstStartIdx,
-      int srcStartIdx, int srcEndIdx, int toShift, int shiftVal1, int shiftVal2, CombinationOperator op) {
+                                         int srcStartIdx, int srcEndIdx, int toShift, int shiftVal1, int shiftVal2, CombinationOperator op) {
 
     for (int dstLine = startLine; dstLine < lastLine; dstLine++, dstStartIdx += dst.getRowStride(), srcStartIdx += src.getRowStride(), srcEndIdx += src.getRowStride()) {
       short register = 0;
@@ -478,7 +498,10 @@ public class Bitmaps {
       for (int srcIdx = srcStartIdx; srcIdx <= srcEndIdx; srcIdx++) {
         byte oldByte = dst.getByte(dstIdx);
         register = (short) ((register | src.getByte(srcIdx) & 0xff) << shiftVal2);
+
         byte newByte = (byte) (register >> 8);
+
+        blitShiftMain( register ,  dstIdx , srcIdx , dst , src, shiftVal2);
 
         if (srcIdx == srcEndIdx) {
           newByte = unpad(toShift, newByte);
@@ -491,7 +514,7 @@ public class Bitmaps {
   }
 
   private static void blitShifted(Bitmap src, Bitmap dst, int startLine, int lastLine, int dstStartIdx,
-      int srcStartIdx, int srcEndIdx, int toShift, int shiftVal1, int shiftVal2, CombinationOperator op, int padding) {
+                                  int srcStartIdx, int srcEndIdx, int toShift, int shiftVal1, int shiftVal2, CombinationOperator op, int padding) {
 
     for (int dstLine = startLine; dstLine < lastLine; dstLine++, dstStartIdx += dst.getRowStride(), srcStartIdx += src.getRowStride(), srcEndIdx += src.getRowStride()) {
       short register = 0;
@@ -506,6 +529,8 @@ public class Bitmaps {
         dst.setByte(dstIdx++, Bitmaps.combineBytes(oldByte, newByte, op));
 
         register <<= shiftVal1;
+
+        blitShiftMain( register ,  dstIdx , srcIdx , dst , src, shiftVal2);
 
         if (srcIdx == srcEndIdx) {
           newByte = (byte) (register >> (8 - shiftVal2));

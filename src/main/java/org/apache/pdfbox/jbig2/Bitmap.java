@@ -22,7 +22,7 @@ import java.awt.Rectangle;
 /**
  * This class represents a bi-level image that is organized like a bitmap.
  */
-public class Bitmap {
+public class Bitmap implements ImageAbstractFactory{
 
 
   /** The height of the bitmap in pixels. */
